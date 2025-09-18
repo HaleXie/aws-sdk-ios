@@ -10,7 +10,7 @@ import struct Foundation.URL
 let latestVersion = "2.41.0-visionOS"
 
 // Hosting url where the release artifacts are hosted.
-let hostingUrl = "https://releases.amplify.aws/aws-sdk-ios/"
+let hostingUrl = "https://github.com/HaleXie/aws-sdk-ios-spm/releases/download/2.41.0-visionOS-1/"
 
 enum BuildMode {
     case remote
@@ -198,7 +198,9 @@ func createTargets() -> [Target] {
                     .target(
                         name: "\(framework)-Target",
                         dependencies: dependencies,
-                        path: "DependantTargets/\(framework)-Target"
+                        path: "DependantTargets/\(framework)-Target",
+                        sources: ["empty.m"],
+                        publicHeadersPath: "."
                     )
                 )
             }
